@@ -40,6 +40,10 @@ public class LightBoard
 
       return lights[row][col];
   }
+  public boolean[][] getLights()
+  {
+    return lights;
+  }
   //used for testing
   public String toString()
   {

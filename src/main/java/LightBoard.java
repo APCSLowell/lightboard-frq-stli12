@@ -13,7 +13,7 @@ public class LightBoard
     lights = new boolean[numRows][numcols];
     for(int i =0; i < numRows; i++){
       for(int j = 0; j < numCols; j++){
-        if(Math.random() <= 0.4)
+        if((double)Math.random() <= 0.4)
           lights[i][j] = true;
         else
           lights[i][j] = false;
@@ -29,28 +29,17 @@ public class LightBoard
   public boolean evaluateLight(int row, int col)
   {
      int count = 0;
-    if(lights[row][col] == true){
-      for(int i =0; i < lights.length; i ++){
-        if(lights[i][col] == true)
-          count++;
-      }
-        if(count % 2 == 0)
-          return false;
-   }
-   else if(lights[row][col] == false){
-      for(int j = 0; j < lights.length; j++){
-        if(lights[i][col] == true)
-          count++;
-      }
-     if(count % 3 == 0)
-       return true;
-   }
- else
-     return lights[row][col];
-  }
-  public boolean[][] getLights()
-  {
-    return lights;
+    for(int i =0; i < lights.length; i ++){
+      if(lights[i][col] == true)
+        count++;
+    }
+
+    if(lights[row][col] == true && count % 2==0)
+      return false;
+    else if(lights[row][col] == false && count % 3 == 0)
+      return true;
+    else
+      return lights[row][col];
   }
   //used for testing
   public String toString()

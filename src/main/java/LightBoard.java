@@ -36,7 +36,7 @@ public class LightBoard
       return false;
     if(lights[row][col] == false && count % 3 == 0)
       return true;
-    else
+
       return lights[row][col];
   }
   //used for testing
